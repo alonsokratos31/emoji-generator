@@ -17,4 +17,14 @@ export class AppController {
       emoji: this.appService.getEmoji(index),
     };
   }
+  @Get()
+  getEmoji2(
+    @Req() request: Request,
+    @Query('index', EmojiValidationPipe) index?: number,
+  ) {
+    return {
+      browser: request.headers.browser,
+      emoji: this.appService.getEmoji(index),
+    };
+  }
 }
